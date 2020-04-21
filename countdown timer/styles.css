@@ -1,0 +1,56 @@
+button {
+    background: white;
+    border-radius: 5px;
+    border: none;
+    padding: 15px 30px;
+    font-size: 24px;
+    font-family: 'Muli';
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    line-height: 1;
+    display: flex;
+  }
+  
+  button:hover {
+    background: #eee;
+  }
+  
+  .icon {
+    margin-right: 8px;
+  }
+  
+  .countdown {
+    position: relative;
+    display: block;
+    text-indent: -999px;
+    overflow: hidden;
+    margin-left: 6px;
+  }
+  
+  .numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    transition: 0.3s ease transform;
+    text-indent: 0;
+  }
+  
+  .reset {
+    font-size: 12px;
+    padding: 8px 16px;
+    margin: 100px auto 0;
+  }
+  
+  /* body styles go here */
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #3ca8de;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-c4d-neon-cool-background-image_205279.jpg");
+  }
