@@ -1,34 +1,45 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pomodorostyles.css">
 </head>
 <body>
-    <div> 
+    <div style="width:800px; margin:0 auto;">
+        <div class="usertime">
+            <form>
+                <label for="usertime">Your duration</label><br>
+                <input type="number" id="usertime" name="usertime" value=""><br>
+            </form>
+        </div>
+
+        <div class="pom">
         <button id="next">
             <span class="icon">👉</span>
             POMODORO TIMER ENDS IN 
             <span id="pomo">
             <span class="pomodoro">
-                <span id="minutes">25</span>
+                <span id="minutes"> 20</span>
                 <span id="colon">:</span>
                 <span id="seconds">00</span>
             </span>
             </span>
         </button>
+        </div>
+        
+        <div class="btns">
+        <section>
+            <a href="index.html">
+                <button class="reset">Countdown/reset</button>
+            </a>
+            <a>
+                <button id="pomodoro" class="pomodoro">Pomodoro</button>
+            </a>
+        </section>
+        </div>
     </div>
-
-    <section style="display: flex inline-block;">
-        <a href="index.html">
-            <button class="reset">Countdown/reset</button>
-        </a>
-        <a>
-            <button id="pomodoro" class="pomodoro">Pomodoro</button>
-        </a>
-    </section>
 
     <script src="pomodoro.js"></script>
 </body>
