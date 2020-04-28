@@ -1,3 +1,15 @@
+function user_time() {
+    var time = document.getElementById('usertime').value;
+    if (time >= 1) {
+        normal_time = parseInt(time);
+        return normal_time;
+    } else {
+        normal_time = 20;
+        return normal_time
+    }
+}
+
+
 var pomodoro = {
     started : false,
     minutes : 0,
@@ -19,15 +31,6 @@ var pomodoro = {
       document.querySelector('#pomodoro').onclick = function(){
         self.startWork.apply(self);
       };
-      document.querySelector('#shortBreak').onclick = function(){
-        self.startShortBreak.apply(self);
-      };
-      document.querySelector('#longBreak').onclick = function(){
-        self.startLongBreak.apply(self);
-      };
-      document.querySelector('#stop').onclick = function(){
-        self.stopTimer.apply(self);
-      };
     },
     resetVariables : function(mins, secs, started){
       this.minutes = mins;
@@ -37,18 +40,9 @@ var pomodoro = {
       this.fillerHeight = 0;  
     },
     startWork: function() {
-      this.resetVariables(25, 0, true);
+      this.resetVariables(user_time(), 0, true);
     },
-    startShortBreak : function(){
-      this.resetVariables(5, 0, true);
-    },
-    startLongBreak : function(){
-      this.resetVariables(15, 0, true);
-    },
-    stopTimer : function(){
-      this.resetVariables(25, 0, false);
-      this.updateDom();
-    },
+   
     toDoubleDigit : function(num){
       if(num < 10) {
         return "0" + parseInt(num, 10);
