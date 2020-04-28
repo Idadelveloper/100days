@@ -1,47 +1,4 @@
-// grab parts of our HTML
-const countdownArea = document.querySelector('.countdown');
-const numbersArea = document.querySelector('.numbers');
-const resetBtn = document.querySelector('.reset');
-const pomodoroBtn = document.querySelector('.pomodoro');
-
-// create an interval and counter
-let interval;
-let count = 0;
-
-// calculate the height of our numbers
-const height = countdownArea.getBoundingClientRect().height;
-
-// create the interval that creates the timer
-function createTimer() {
-        clearInterval(interval);
-        count = 0;
-        numbersArea.style.transform = 'translateY(0)'
-        interval = setInterval(() => {
-  
-          // 1. increment our count
-      count++;
-  
-      // 2. calculate the offset and apply it
-      const offset = height * count;
-  
-          // 3. apply the offset using css transforms
-      numbersArea.style.transform = `translateY(-${offset}px)`
-  
-      // 4. stop the interval at 10
-      if (count >= 10) {
-        // go to the next episode
-        clearInterval(interval);
-      }
-    }, 1000);
-  }
-
-  createTimer();
-
-  resetBtn.addEventListener('click', createTimer);
-
-
-
-  var pomodoro = {
+var pomodoro = {
     started : false,
     minutes : 0,
     seconds : 0,
@@ -62,7 +19,15 @@ function createTimer() {
       document.querySelector('#pomodoro').onclick = function(){
         self.startWork.apply(self);
       };
-
+      document.querySelector('#shortBreak').onclick = function(){
+        self.startShortBreak.apply(self);
+      };
+      document.querySelector('#longBreak').onclick = function(){
+        self.startLongBreak.apply(self);
+      };
+      document.querySelector('#stop').onclick = function(){
+        self.stopTimer.apply(self);
+      };
     },
     resetVariables : function(mins, secs, started){
       this.minutes = mins;
@@ -74,7 +39,16 @@ function createTimer() {
     startWork: function() {
       this.resetVariables(25, 0, true);
     },
-   
+    startShortBreak : function(){
+      this.resetVariables(5, 0, true);
+    },
+    startLongBreak : function(){
+      this.resetVariables(15, 0, true);
+    },
+    stopTimer : function(){
+      this.resetVariables(25, 0, false);
+      this.updateDom();
+    },
     toDoubleDigit : function(num){
       if(num < 10) {
         return "0" + parseInt(num, 10);
