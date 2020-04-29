@@ -5,7 +5,7 @@ function user_time() {
         return normal_time;
     } else {
         normal_time = 20;
-        return normal_time
+        return normal_time;
     }
 }
 
