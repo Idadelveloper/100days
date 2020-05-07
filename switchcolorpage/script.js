@@ -1,37 +1,21 @@
-var button = document.querySelector("button");
+var colors = ["blue", "green", "gray", "yellow", "black", "red", "pink", "white"],   
+            index = 0;                                     
 
-button.addEventListener("click", function() {
-    const curColour = document.body.style.backgroundColor;
+        document.getElementById("btn1").onclick = function changeBackgroundColor() {
+            document.body.style.background = colors[index];  
+            index = (index + 1) % colors.length;             
+        }
 
-    if (curColour === 'blue') {
-        document.body.style.backgroundColor = "green";
-    }
 
-    else if (curColour === 'green') {
-        document.body.style.backgroundColor = "grey";
-    }
+var button1 = document.getElementById('btn2');
+i = -1;
+function getCrazy() {
+    i = (i + 1) % colors.length;
+    document.body.style.background = colors[i];
+}
 
-    else if (curColour === 'grey') {
-        document.body.style.backgroundColor = "yellow";
-    }
+document.getElementById("btn2").onclick = function () {
+    document.body.style.background = getCrazy()
+    setInterval(getCrazy, 3000);
 
-    else if (curColour === 'yellow') {
-        document.body.style.backgroundColor = "black";
-    }
-
-    else if (curColour === 'black') {
-        document.body.style.backgroundColor = "red";
-    }
-
-    else if (curColour === 'red') {
-        document.body.style.backgroundColor = "pink";
-    }
-
-    else if (curColour === 'pink') {
-        document.body.style.backgroundColor = "white";
-    }
-
-       else {
-        document.body.style.backgroundColor = "blue";
-    }
-});
+}
